@@ -101,3 +101,28 @@ websocket-client==1.8.0
 whitenoise==6.8.2
 zope.event==5.0
 zope.interface==7.2
+# Core Django stack
+Django==4.2.21
+djangorestframework==3.16.0
+django-cors-headers==4.7.0
+dj-database-url==2.3.0
+gunicorn==23.0.0
+whitenoise==6.8.2
+psycopg2-binary==2.9.10
+
+# API calls, translation, and TTS
+requests==2.32.3
+googletrans==4.0.0rc1
+gTTS==2.5.4
+
+# Machine Learning & Data
+numpy==1.24.4
+pandas==1.5.3
+scikit-learn==1.4.2
+
+# Utility
+python-dateutil==2.9.0.post0
+pytz==2024.2
+
+# ASGI server (optional, for async or local dev testing)
+uvicorn==0.34.2
