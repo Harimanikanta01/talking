@@ -82,27 +82,4 @@ class Pa(APIView):
                 print(text)
         return Response({"transcription": text})
 
-class Ps(APIView):
-    def post(self, request):
-        movie_name = request.data.get("movie_name")  # Get movie from request body
-
-        # Load data
-        movies = pickle.load(open(r'C:\Users\ADMIN\Desktop\m27back\new\app\moviesupdated.pkl', 'rb'))
-
-        similarity = pickle.load(open(r'C:\Users\ADMIN\Desktop\m27back\new\app\similarityupdated.pkl', 'rb'))
-
-        # Check if movie exists
-        if movie_name not in movies['title'].values:
-            return Response({"error": f"Movie '{movie_name}' not found."})
-
-        # Get index of the movie
-        idx = movies[movies['title'] == movie_name].index[0]
-
-        # Calculate similarity
-        distances = list(enumerate(similarity[idx]))
-        sorted_movies = sorted(distances, key=lambda x: x[1], reverse=True)[1:5]
-
-        # Build response
-        recommendations = [movies.iloc[i[0]].title for i in sorted_movies]
-        recommendations1 = [movies.iloc[i[0]].genre for i in sorted_movies]
-        return Response({"recommendations": recommendations,"recommendations1":recommendations1})
+   
